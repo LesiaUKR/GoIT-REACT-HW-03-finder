@@ -7,5 +7,4 @@ export const Layout = styled.div`
   padding-bottom: 24px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,.7);
 `;

@@ -43,11 +43,11 @@ export const SearchInput = styled.input`
   outline: none;
   padding-left: 4px;
   padding-right: 4px;
-  
+
   ::placeholder {
-      font: inherit;
-      font-size: 18px;
-    }
+    font: inherit;
+    font-size: 18px;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -64,5 +64,5 @@ export const SearchButton = styled.button`
   outline: none;
   :hover {
     opacity: 1;
-  }  
+  }
 `;

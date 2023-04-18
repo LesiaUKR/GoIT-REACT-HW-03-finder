@@ -26,29 +26,32 @@ export class ImageGallery extends Component {
     if (prevState.page !== this.state.page) {
       this.getImages();
     }
-    };
-    
+  }
+
   getImages = () => {
     this.setState({ loading: true });
     fetchImages(this.props.searchQuery, this.state.page)
       .then(images => {
-        this.setState({ images: [...this.state.images, ...images.hits] });
-        console.log(images);
+        const hasMoreImages = images.hits.length > 0;
+        this.setState(prevState => ({
+          images: [...prevState.images, ...images.hits],
+          loadMore: hasMoreImages,
+        }));
       })
       .catch(error => this.setState({ error }))
       .finally(() => {
         this.setState({ loading: false });
       });
-    };
-    
+  };
+
   handleLoadMore = () => {
     this.setState(prevPage => ({
       page: prevPage.page + 1,
     }));
-    };
-    
+  };
+
   render() {
-    const { error, images, loading } = this.state;
+    const { error, images, loading, loadMore } = this.state;
     return (
       <>
         <ImageList>
@@ -64,13 +67,11 @@ export class ImageGallery extends Component {
               );
             })}
         </ImageList>
-        {images.length !== 0 && <LoadMoreBtn onClick={this.handleLoadMore} />}
         {loading && <Loader />}
+        {!loading && images.length !== 0 && loadMore && (
+          <LoadMoreBtn onClick={this.handleLoadMore} />
+        )}
       </>
     );
   }
 }
-// ImageGallery.propTypes = {
-//   onDeleteContact: PropTypes.func,
-//   contacts: PropTypes.array,
-// };

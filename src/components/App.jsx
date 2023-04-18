@@ -15,6 +15,14 @@ export class App extends Component {
     console.log({ searchText });
   };
 
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({ showModal: !showModal }));
+  };
+  getLargeImg = url => {
+    this.toggleModal();
+    this.setState({ modalImg: url });
+  };
+
   render() {
     return (
       <Layout>
@@ -22,7 +30,6 @@ export class App extends Component {
         <ToastContainer autoClose={3000} />
         <Searchbar onSubmit={this.createSearchText} />
         <ImageGallery searchQuery={this.state.searchText} />
-        {/* <Loader /> */}
       </Layout>
     );
   }

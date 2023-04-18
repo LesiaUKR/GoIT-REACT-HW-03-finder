@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 
-{  Header,
+import {
+  Header,
   Form,
   FormField,
   SearchButton,
-  SearchInput,}
- from './Searchbar.styled';
+  SearchInput,
+} from './Searchbar.styled';
 import { BiSearchAlt } from 'react-icons/bi';
 import { toast } from 'react-toastify';
-   import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Searchbar extends Component {
   state = {
     query: '',
-  }
+  };
 
   handleSearchQuery = event => {
     this.setState({ query: event.currentTarget.value.toLowerCase() });
- console.log(this.state);
-  }
+    console.log(this.state);
+  };
 
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.query.trim() === '') {
-       return toast.error('Введіть назву картинки');
+      return toast.error('Введіть назву картинки');
     }
     this.props.onSubmit(this.state.query);
     // this.setState({ query: '' });
-}
+  };
 
   render() {
     return (
@@ -52,9 +52,8 @@ export class Searchbar extends Component {
       </Header>
     );
   }
-};
+}
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func,
 };
-
