@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GoIT-REACT-HW-03-finder/static/css/main.86bee891.css",
+    "main.js": "/GoIT-REACT-HW-03-finder/static/js/main.39da6eb2.js",
+    "index.html": "/GoIT-REACT-HW-03-finder/index.html",
+    "main.86bee891.css.map": "/GoIT-REACT-HW-03-finder/static/css/main.86bee891.css.map",
+    "main.39da6eb2.js.map": "/GoIT-REACT-HW-03-finder/static/js/main.39da6eb2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86bee891.css",
+    "static/js/main.39da6eb2.js"
+  ]
+}
