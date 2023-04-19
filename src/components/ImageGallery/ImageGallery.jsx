@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { fetchImages } from '../serviceAPI/ImagesAPI';
 import React, { Component } from 'react';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
@@ -20,10 +20,11 @@ export class ImageGallery extends Component {
     const nextName = this.props.searchQuery;
     if (prevName !== nextName) {
       // console.log(nextName.trim());
-      this.setState({ images: [], page: 1 });
-      this.getImages();
+      this.setState({ images: [], page: 1, loadMore: false }, () => {
+        this.getImages();
+      });
     }
-    if (prevState.page !== this.state.page) {
+    if (prevState.page !== this.state.page && this.state.page !== 1) {
       this.getImages();
     }
   }
@@ -74,4 +75,9 @@ export class ImageGallery extends Component {
       </>
     );
   }
-}
+};
+
+ImageGallery.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
+};

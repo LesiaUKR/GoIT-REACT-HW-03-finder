@@ -10,7 +10,6 @@ export const Loader = () => {
         visible={'true'}
         loading={'true'}
         size={60}
-        wrapperStyle={{ margin: '0 auto' }}
       />
     </LoaderBox>
   );
